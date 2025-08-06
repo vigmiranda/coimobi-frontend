@@ -24,8 +24,8 @@ export default function PropertyList() {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Properties</h1>
-      <Link to="/properties/new" className="bg-green-500 text-white p-2 rounded">Add Property</Link>
+      <h1 className="text-2xl font-bold mb-4">Imóveis Disponiveis</h1>
+      <Link to="/properties/new" className="bg-green-500 text-white p-2 rounded">Adicionar Imóvel</Link>
       <ul className="mt-4 space-y-4">
         {properties.map(p => (
           <li key={p.ID} className="border p-4 rounded shadow flex justify-between items-center">
