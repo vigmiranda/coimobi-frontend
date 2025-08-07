@@ -35,7 +35,7 @@ export default function PropertyList() {
               <p><b> Endereço: </b>  {p.full_address}</p>
             </div>
             <div className="space-x-2">
-              <Link to={`properties/:ID/edit`} className="bg-blue-500 text-white px-3 py-1 rounded">Edit</Link>
+              <Link to={`${p.ID}/edit/`} className="bg-blue-500 text-white px-3 py-1 rounded">Edit</Link>
               <button onClick={() => handleDelete(p.ID)} className="bg-red-500 text-white px-3 py-1 rounded">Delete</button>
             </div>
           </li>

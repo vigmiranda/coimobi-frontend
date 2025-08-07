@@ -17,10 +17,11 @@ const initialState = {
   longitude: ''
 };
 
-export default function PropertyForm({ isEdit }) {
+export default function PropertyForm({  }) {
   const [property, setProperty] = useState(initialState);
   const navigate = useNavigate();
   const { ID } = useParams();
+  const isEdit = !!ID;
   const fieldLabels = {
     title: 'Título',
     property_type: 'Tipo do Imóvel',
@@ -68,7 +69,8 @@ export default function PropertyForm({ isEdit }) {
 
 
     const method = isEdit ? api.put : api.post;
-    method('/property', data)
+    const url = isEdit ? '/property/'+ID : '/property';
+    method(url, data)
         .then(() => navigate('/'));
   };
 
