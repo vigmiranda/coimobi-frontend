@@ -40,7 +40,7 @@ export default function PropertyForm({  }) {
 
   useEffect(() => {
     if (ID) {
-      api.get(`/property`)
+      api.get(`/property/all`)
         .then(res => {
           const found = res.data.find(p => p.ID == ID);
           if (found) setProperty(found);

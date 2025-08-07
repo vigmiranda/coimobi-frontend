@@ -7,7 +7,7 @@ export default function PropertyList() {
   const [properties, setProperties] = useState([]);
 
   const fetchData = () => {
-    api.get('/property')
+    api.get('/property/all')
       .then(res => setProperties(res.data))
       .catch(err => console.error('Erro ao buscar propriedades', err));
   };
