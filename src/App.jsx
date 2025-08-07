@@ -12,7 +12,7 @@ function App() {
                 <Route index element={<Navigate to="properties" replace />} />
                 <Route path="properties" element={<PropertyList />} />
                 <Route path="properties/new" element={<PropertyForm />} />
-                <Route path="properties/:id/edit" element={<PropertyForm />} />
+                <Route path="properties/:ID/edit" element={<PropertyForm />} />
             </Route>
         </Routes>
     );

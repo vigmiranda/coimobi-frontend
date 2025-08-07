@@ -21,9 +21,24 @@ export default function PropertyForm({ isEdit }) {
   const [property, setProperty] = useState(initialState);
   const navigate = useNavigate();
   const { ID } = useParams();
+  const fieldLabels = {
+    title: 'Título',
+    property_type: 'Tipo do Imóvel',
+    purpose: 'Valor',
+    description: 'Descrição',
+    usable_area_m2: 'Área Útil (m²)',
+    total_area_m2: 'Área Total (m²)',
+    bedrooms: 'Quartos',
+    bathrooms: 'Banheiros',
+    garage_spaces: 'Vagas de Garagem',
+    full_address: 'Endereço Completo',
+    latitude: 'Latitude',
+    longitude: 'Longitude'
+  };
+
 
   useEffect(() => {
-    if (isEdit && ID) {
+    if (ID) {
       api.get(`/property`)
         .then(res => {
           const found = res.data.find(p => p.ID == ID);
@@ -51,6 +66,7 @@ export default function PropertyForm({ isEdit }) {
       purpose: parseFloat(property.purpose?.toString().replace(',', '.')),
     };
 
+
     const method = isEdit ? api.put : api.post;
     method('/property', data)
         .then(() => navigate('/'));
@@ -64,7 +80,7 @@ export default function PropertyForm({ isEdit }) {
           name={field}
           value={property[field]}
           onChange={handleChange}
-          placeholder={field}
+          placeholder={fieldLabels[field] || field}
           className="border p-2 rounded"
         />
       ))}
