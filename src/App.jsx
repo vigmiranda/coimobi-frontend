@@ -4,12 +4,13 @@ import PrivateRoute from './components/PrivateRoute';
 import PropertyList from './components/PropertyList';
 import PropertyForm from './components/PropertyForm';
 import Login from './pages/Login';
+import Register from './pages/Register';
 
 function App() {
     return (
         <Routes>
             <Route path="/login" element={<Login />} />
-
+            <Route path="/register" element={<Register />} />
             <Route path="/" element={
                 <PrivateRoute>
                     <Layout />

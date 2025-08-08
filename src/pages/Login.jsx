@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from '../api/api';
+import { Link } from 'react-router-dom';
+import logo from "../assets/images/logo.png";
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -21,6 +23,7 @@ export default function Login() {
 
     return (
         <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow rounded">
+            <img src={logo} alt="CoImobi Logo" className="h-20"/>
             <h2 className="text-xl font-bold mb-4">Login</h2>
             {error && <div className="text-red-500 mb-2">{error}</div>}
             <form onSubmit={handleSubmit}>
@@ -46,6 +49,13 @@ export default function Login() {
                 >
                     Entrar
                 </button>
+
+                <Link
+                    to="/register"
+                    className="block text-center w-full bg-gray-500 text-white py-2 rounded hover:bg-gray-600 mt-2"
+                >
+                    Registrar
+                </Link>
             </form>
         </div>
     );
