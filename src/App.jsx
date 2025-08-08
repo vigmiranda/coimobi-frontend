@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/Layout';
+import PrivateRoute from './components/PrivateRoute';
 import PropertyList from './components/PropertyList';
 import PropertyForm from './components/PropertyForm';
 import Login from './pages/Login';
@@ -8,7 +9,12 @@ function App() {
     return (
         <Routes>
             <Route path="/login" element={<Login />} />
-            <Route path="/" element={<Layout />}>
+
+            <Route path="/" element={
+                <PrivateRoute>
+                    <Layout />
+                </PrivateRoute>
+            }>
                 <Route index element={<Navigate to="properties" replace />} />
                 <Route path="properties" element={<PropertyList />} />
                 <Route path="properties/new" element={<PropertyForm />} />
